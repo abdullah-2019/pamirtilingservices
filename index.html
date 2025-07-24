@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pamir Tiling Services | Brisbane, Gold Coast, Sunshine Coast, Toowoomba</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #1a3d5c;
+      --secondary: #f5f6fa;
+      --accent: #f2b632;
+      --text: #222;
+      --border-radius: 8px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      display: inline;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      transition: background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 10px rgba(26,61,92,0.08);
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    h1, h2, h3 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .showcase .text {
+      flex: 1 1 300px;
+    }
+    .showcase img {
+      width: 350px;
+      max-width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--secondary);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      margin-bottom: 0.5rem;
+      max-height: 180px;
+      object-fit: cover;
+    }
+    .project-card button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-top: auto;
+      transition: background 0.2s;
+    }
+    .project-card button:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    .story {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .story .text {
+      flex: 2 1 300px;
+    }
+    .story img {
+      width: 340px;
+      max-width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .contact-form {
+      background: var(--secondary);
+      padding: 1.2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 4px rgba(26,61,92,0.04);
+      max-width: 450px;
+      margin: 1rem 0;
+    }
+    .contact-form label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #d1d9e6;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      background: #fff;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    .reason-list, .client-list, .team-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .reason-list li, .client-list li, .team-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      flex: 1 1 240px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .client-logo {
+      width: 90px;
+      height: 40px;
+      background: #ddd;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    .slideshow {
+      width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .slide {
+      display: none;
+      width: 100%;
+    }
+    .slide.active {
+      display: block;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .slide-controls {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .slide-controls button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+    .slide-controls button:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    .team-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: flex-start;
+    }
+    .team-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    .google-map {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .showcase, .story {
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+      }
+      main {
+        padding: 0.5rem;
+        margin: 0.5rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .contact-form {
+        padding: 0.7rem;
+      }
+      .project-card, .reason-list li, .client-list li {
+        padding: 0.7rem;
+      }
+      .slideshow {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Pamir Tiling Services</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!-- HOME PAGE -->
+    <section id="home" class="section">
+      <div class="showcase">
+        <div class="text">
+          <h1>Brisbane’s Trusted Commercial & Residential Tiling Experts</h1>
+          <p>
+            Welcome to Pamir Tiling Services, your expert partner for top-quality tiling solutions in Brisbane, Gold Coast, Sunshine Coast, and Toowoomba. We deliver exceptional tiling craftsmanship for builders, developers, and homeowners.<br>
+            <strong>Get your project started with our experienced team today!</strong>
+          </p>
+        </div>
+        <img src="https://via.placeholder.com/350x230?text=Tiling+Showcase" alt="Tiling Showcase">
+      </div>
+    </section>
+    <section class="section" id="our-projects">
+      <h2>Our Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+1" alt="Project 1">
+          <h3>Modern Apartment Complex</h3>
+          <p>High-end tile installation for all bathrooms, kitchens, and lobbies in a new 90-unit development.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+2" alt="Project 2">
+          <h3>Luxury Retail Store</h3>
+          <p>Custom feature walls and large-format flooring tiles for a flagship store in the CBD.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+3" alt="Project 3">
+          <h3>Residential Renovation</h3>
+          <p>Full bathroom and kitchen tiling, including waterproofing, for a renovated Queenslander home.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="our-story">
+      <h2>Our Story</h2>
+      <div class="story">
+        <div class="text">
+          <p>
+            Founded by experienced tilers, Pamir Tiling Services has built a reputation for quality, reliability, and value. We’ve proudly completed hundreds of projects for local builders, developers, and homeowners.<br>
+            Our mission: to deliver five-star tiling on every project, big or small.
+          </p>
+        </div>
+        <img src="https://via.placeholder.com/340x220?text=Our+Team+at+Work" alt="Our Team at Work">
+      </div>
+    </section>
+    <section class="section" id="get-in-touch">
+      <h2>Get In Touch</h2>
+      <form class="contact-form" id="contactFormHome">
+        <label for="fname1">First Name</label>
+        <input type="text" id="fname1" name="first_name" required>
+        <label for="lname1">Last Name</label>
+        <input type="text" id="lname1" name="last_name" required>
+        <label for="email1">Email</label>
+        <input type="email" id="email1" name="email" required>
+        <label for="phone1">Phone</label>
+        <input type="tel" id="phone1" name="phone">
+        <label for="message1">Message</label>
+        <textarea id="message1" name="message" rows="3" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+    <!-- SERVICES PAGE -->
+    <section class="section" id="services">
+      <h2>Our Services</h2>
+      <ul class="reason-list">
+        <li>
+          <h3>Expertise & Experience</h3>
+          <p>Our team brings years of experience in large-scale commercial and residential tiling.</p>
+        </li>
+        <li>
+          <h3>Quality Workmanship</h3>
+          <p>We use only premium materials and the latest techniques for a flawless finish.</p>
+        </li>
+        <li>
+          <h3>On-Time, On-Budget</h3>
+          <p>We’re known for reliable service and respecting your project deadlines and budget.</p>
+        </li>
+        <li>
+          <h3>Fully Licensed & Insured</h3>
+          <p>QBCC Licensed, ABN registered and fully insured for your peace of mind.</p>
+        </li>
+      </ul>
+      <h3 style="margin-top:2rem;">Clients That Trust Us</h3>
+      <ul class="client-list">
+        <li>
+          <div class="client-logo">BuilderCo</div>
+          <span>BuilderCo Pty Ltd</span>
+        </li>
+        <li>
+          <div class="client-logo">DevGroup</div>
+          <span>DevGroup Projects</span>
+        </li>
+        <li>
+          <div class="client-logo">HomeRenovators</div>
+          <span>Home Renovators QLD</span>
+        </li>
+        <li>
+          <div class="client-logo">RetailFitout</div>
+          <span>Retail Fitout Experts</span>
+        </li>
+      </ul>
+      <section style="margin-top:2rem;">
+        <h3>Get In Touch</h3>
+        <form class="contact-form" id="contactFormServices">
+          <label for="fname2">First Name</label>
+          <input type="text" id="fname2" name="first_name" required>
+          <label for="lname2">Last Name</label>
+          <input type="text" id="lname2" name="last_name" required>
+          <label for="email2">Email</label>
+          <input type="email" id="email2" name="email" required>
+          <label for="phone2">Phone</label>
+          <input type="tel" id="phone2" name="phone">
+          <label for="message2">Message</label>
+          <textarea id="message2" name="message" rows="3" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </section>
+    <!-- PROJECTS PAGE -->
+    <section class="section" id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+4" alt="Project 4">
+          <h3>CBD Office Tower</h3>
+          <p>Large-format tiling for all washrooms and lobbies of a new city office development.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+5" alt="Project 5">
+          <h3>Hotel Refurbishment</h3>
+          <p>Elegant tile upgrades for common areas and suites in a 5-star hotel.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/320x180?text=Project+6" alt="Project 6">
+          <h3>Shopping Centre Expansion</h3>
+          <p>Commercial tiling throughout all new retail tenancies and food courts.</p>
+          <button onclick="alert('More details coming soon!')">More Details</button>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT US PAGE -->
+    <section class="section" id="about">
+      <h2>About Us</h2>
+      <div class="slideshow" id="aboutSlideshow">
+        <img src="https://via.placeholder.com/500x220/1a3d5c/fff?text=Quality+Tiling" class="slide active" alt="Quality Tiling">
+        <img src="https://via.placeholder.com/500x220/f2b632/1a3d5c?text=Expert+Team" class="slide" alt="Expert Team">
+        <img src="https://via.placeholder.com/500x220/fff/1a3d5c?text=Modern+Projects" class="slide" alt="Modern Projects">
+      </div>
+      <div class="slide-controls">
+        <button type="button" onclick="prevSlide()">&#8592;</button>
+        <button type="button" onclick="nextSlide()">&#8594;</button>
+      </div>
+      <p style="margin-top:1.5rem;">
+        Pamir Tiling Services is a local, family-owned business committed to high standards and customer satisfaction. We work closely with builders, developers, and homeowners to bring their tiling visions to life, on time and on budget.
+      </p>
+      <h3 style="margin-top:2rem;">Meet the Team</h3>
+      <div class="team-list">
+        <div class="team-card">
+          <img src="https://via.placeholder.com/80?text=Ali" alt="Ali">
+          <strong>Ali Pamir</strong>
+          <span>Director & Senior Tiler</span>
+        </div>
+        <div class="team-card">
+          <img src="https://via.placeholder.com/80?text=Sarah" alt="Sarah">
+          <strong>Sarah Qaderi</strong>
+          <span>Project Manager</span>
+        </div>
+        <div class="team-card">
+          <img src="https://via.placeholder.com/80?text=Omid" alt="Omid">
+          <strong>Omid Bahrami</strong>
+          <span>Site Supervisor</span>
+        </div>
+      </div>
+      <section style="margin-top:2rem;">
+        <h3>Get In Touch</h3>
+        <form class="contact-form" id="contactFormAbout">
+          <label for="fname3">First Name</label>
+          <input type="text" id="fname3" name="first_name" required>
+          <label for="lname3">Last Name</label>
+          <input type="text" id="lname3" name="last_name" required>
+          <label for="email3">Email</label>
+          <input type="email" id="email3" name="email" required>
+          <label for="phone3">Phone</label>
+          <input type="tel" id="phone3" name="phone">
+          <label for="message3">Message</label>
+          <textarea id="message3" name="message" rows="3" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </section>
+    <!-- CONTACT US PAGE -->
+    <section class="section" id="contact">
+      <h2>Contact Us</h2>
+      <img src="https://via.placeholder.com/1000x200?text=Pamir+Tiling+Services" alt="Pamir Tiling Office" style="width:100%;max-width:1000px; border-radius:8px; margin-bottom:1rem;">
+      <iframe class="google-map" src="https://www.google.com/maps?q=19/6+Maunder+Street,+Slacks+Creek,+QLD+4127&output=embed" allowfullscreen="" title="Google Map"></iframe>
+      <div style="margin-bottom:1rem;">
+        <strong>Address:</strong> 19/6 Maunder Street, Slacks Creek, QLD, 4127<br>
+        <strong>Phone:</strong> <a href="tel:+61732905911">07 3290 5911</a><br>
+        <strong>Email:</strong> <a href="mailto:sixstartiling@gmail.com">sixstartiling@gmail.com</a><br>
+        <strong>Business Hours:</strong> Mon-Fri 8:00-17:00
+      </div>
+      <section>
+        <h3>Get In Touch</h3>
+        <form class="contact-form" id="contactFormContact">
+          <label for="fname4">First Name</label>
+          <input type="text" id="fname4" name="first_name" required>
+          <label for="lname4">Last Name</label>
+          <input type="text" id="lname4" name="last_name" required>
+          <label for="email4">Email</label>
+          <input type="email" id="email4" name="email" required>
+          <label for="phone4">Phone</label>
+          <input type="tel" id="phone4" name="phone">
+          <label for="message4">Message</label>
+          <textarea id="message4" name="message" rows="3" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </section>
+  </main>
+  <footer style="background:var(--primary);color:#fff;text-align:center;padding:1rem 0;border-radius:0 0 8px 8px;margin-top:1rem;">
+    <small>&copy; 2025 Pamir Tiling Services Pty Ltd | ABN: 44 628 537 753 | QBCC #: 151 083 74</small>
+  </footer>
+  <script>
+    // Slideshow for About Us
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === idx);
+      });
+    }
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }
+    function prevSlide() {
+      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+      showSlide(slideIndex);
+    }
+    // Auto-slide
+    setInterval(nextSlide, 5000);
+
+    // Navigation active link
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Scroll to section on nav click
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Simple "submitted!" for forms
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for contacting Pamir Tiling Services! We will get back to you soon.');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
